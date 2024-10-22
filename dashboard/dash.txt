@@ -1,0 +1,2 @@
+En esta carpeta se adjuntaran los dashboards de pentaho report design con la data limpia
+(post ETL)

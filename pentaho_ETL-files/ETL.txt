@@ -1,0 +1,2 @@
+en esta carpeta iran todas las transformaciones del proceso ETL e incluso
+los Jobs para automatizar las transformaciones

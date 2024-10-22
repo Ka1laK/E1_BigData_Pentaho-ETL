@@ -1,0 +1,6 @@
+Simulacion de base de datos por paises 
+
+- CSV
+- XLSX
+- SQL (MySQL, SQLServer, Oracle, PostgreSQL)
+

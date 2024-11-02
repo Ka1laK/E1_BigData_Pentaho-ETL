@@ -493,17 +493,7 @@
     </hop>
     <hop>
       <from>Filter rows 2</from>
-      <to>Sort rows 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows 2</from>
       <to>Dummy (do nothing) 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 2</from>
-      <to>Unique rows 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -574,6 +564,16 @@
     <hop>
       <from>String operations</from>
       <to>Filter rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows 2</from>
+      <to>Sort rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 2</from>
+      <to>Unique rows 2</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -884,7 +884,7 @@
     </remotesteps>
     <GUI>
       <xloc>640</xloc>
-      <yloc>192</yloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1357,6 +1357,18 @@
         <case_sensitive>no</case_sensitive>
         <is_unicode>no</is_unicode>
       </field>
+      <field>
+        <in_stream_name>Nombre</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>Ã­</replace_string>
+        <replace_by_string>ì</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+        <is_unicode>no</is_unicode>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1630,48 +1642,6 @@
     </GUI>
   </step>
   <step>
-    <name>Sort rows 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>id_producto</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>816</xloc>
-      <yloc>368</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Sort rows 3</name>
     <type>SortRows</type>
     <description/>
@@ -1824,18 +1794,6 @@
     <fields>
       <field>
         <name>ID_Cliente</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>Nombre</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>Correo</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>Teléfono</name>
         <case_insensitive>Y</case_insensitive>
       </field>
     </fields>
@@ -1871,14 +1829,6 @@
     <fields>
       <field>
         <name>id_producto</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>nombre_producto</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>precio_unitario</name>
         <case_insensitive>Y</case_insensitive>
       </field>
     </fields>
@@ -1891,7 +1841,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>960</xloc>
+      <xloc>944</xloc>
       <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1914,18 +1864,6 @@
     <fields>
       <field>
         <name>id_venta</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>monto_total</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>id_producto</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>id_cliente</name>
         <case_insensitive>Y</case_insensitive>
       </field>
     </fields>
@@ -1938,7 +1876,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1040</xloc>
+      <xloc>1024</xloc>
       <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2240,6 +2178,48 @@
     <GUI>
       <xloc>1344</xloc>
       <yloc>656</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>id_producto</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>784</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

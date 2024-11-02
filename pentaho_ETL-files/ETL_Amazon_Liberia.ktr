@@ -1604,7 +1604,7 @@
       <meta>
         <name>Sale_ID</name>
         <rename>Sale_ID</rename>
-        <type>None</type>
+        <type>Integer</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -1621,7 +1621,7 @@
       <meta>
         <name>Date_Time</name>
         <rename>Date_Time</rename>
-        <type>None</type>
+        <type>Date</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -1655,7 +1655,7 @@
       <meta>
         <name>Product_ID</name>
         <rename>Product_ID</rename>
-        <type>None</type>
+        <type>Integer</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -1672,24 +1672,7 @@
       <meta>
         <name>Client_ID</name>
         <rename>Client_ID</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>Quantity</name>
-        <rename>Quantity</rename>
-        <type>None</type>
+        <type>Integer</type>
         <length>-2</length>
         <precision>-2</precision>
         <conversion_mask/>
@@ -2022,14 +2005,6 @@
     <fields>
       <field>
         <name>Client_ID</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>fullName</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>Email</name>
         <case_insensitive>Y</case_insensitive>
       </field>
     </fields>
@@ -2065,14 +2040,6 @@
     <fields>
       <field>
         <name>Product_ID</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>Product_Name</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>Unit_Price</name>
         <case_insensitive>Y</case_insensitive>
       </field>
     </fields>
@@ -2103,27 +2070,11 @@
     </partitioning>
     <count_rows>N</count_rows>
     <count_field/>
-    <reject_duplicate_row>N</reject_duplicate_row>
+    <reject_duplicate_row>Y</reject_duplicate_row>
     <error_description/>
     <fields>
       <field>
         <name>Sale_ID</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>Total_Amount</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>Product_ID</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>Client_ID</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>dateSale</name>
         <case_insensitive>Y</case_insensitive>
       </field>
     </fields>

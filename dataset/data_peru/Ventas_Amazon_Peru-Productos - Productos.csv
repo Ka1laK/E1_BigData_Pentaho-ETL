@@ -1,0 +1,106 @@
+id_producto,nombre_producto,precio_unitario
+1,Cámara,1000
+2,Televisor,2500
+3,Laptop,4000
+4,Smartphone,1200
+5,Audífonos,200
+6,Mouse,150
+7,Teclado,350
+8,Monitor,1800
+9,Consola de videojuegos,3000
+10,Iphone,900
+11,Tablet,800
+12,Papel,500
+13,Proyector,1200
+14,Altavoces,700
+15,Camcorder,1500
+16,Gafas de realidad virtual,2500
+17,Drone,1200
+18,Dispositivo de streaming,150
+19,Soporte para laptop,30
+20,Airdrops,80
+21,Hub USB,25
+22,Adaptador de corriente,50
+23,Funda para celular,20
+24,Auriculares Bluetooth,100
+25,USB,300
+26,Aire Acondicionado 26,2270
+27,Reloj Inteligente 27,2486
+28,Monitor 28,509
+29,Ratón 29,4732
+30,Altavoz 30,858
+31,Reloj Inteligente 31,1712
+32,Reloj Inteligente 32,4876
+33,Monitor 33,3953
+34,iPhone 14,2301
+35,Galaxy S23,3669
+36,ThinkPad X1 Carbon,4978
+37,MacBook Pro 16,293
+38,XPS 13,4149
+39,Surface Pro 9,1503
+40,ROG Zephyrus G14,308
+41,PlayStation 5,2931
+42,Xbox Series X,2739
+43,AirPods Pro 2,1486
+44,Galaxy Buds2 Pro,3396
+45,Kindle Paperwhite,1990
+46,Echo Dot 5th Gen,4095
+47,Oculus Quest 2,1084
+48,Apple Watch Series 8,3816
+49,Galaxy Watch 5,4944
+50,iPad Pro 12.9,1957
+51,Galaxy Tab S8,2229
+52,Sony WH-1000XM5 Headphones,1449
+53,Bose QuietComfort 45,4106
+54,Canon EOS R5 Camera,1688
+55,Nikon Z9 Camera,3424
+56,GoPro HERO11,4186
+57,DJI Mavic 3 Drone,2701
+58,HP Spectre x360,544
+1,Microondas 59,505
+1,Ratón 60,2008
+1,Aire Acondicionado 61,2905
+1,Impresora 62,2724
+2,Impresora 63,552
+2,Microondas 64,1526
+2,Impresora 65,404
+2,Tablet 66,912
+3,Tablet 67,1537
+3,Ratón 68,2141
+3,Calculadora,3198
+3,Impresora 70,2981
+71,iPad Mini,1915
+72,Surface Laptop Studio,716
+73,ASUS ZenBook Pro Duo,452
+74,Mac Mini,1586
+75,Alienware Aurora R13,277
+76,Dell UltraSharp Monitor 34,2512
+77,Logitech MX Master 3S Mouse,1913
+78,Razer Huntsman V2 Keyboard,2543
+79,Corsair K95 RGB Platinum Keyboard,2296
+80,HyperX Cloud Alpha Headset,2344
+81,Bose SoundLink Revolve+ Speaker,1301
+82,JBL Charge 5 Speaker,988
+83,Fitbit Charge 5,757
+84,Garmin Fenix 7,4434
+85,Sony Bravia XR TV,2583
+86,Samsung Neo QLED TV,4889
+87,LG OLED C2 TV,422
+88,Epson EcoTank Printer,1171
+89,Brother LaserJet Printer,2856
+90,Panasonic Lumix GH6 Camera,1074
+91,Ricoh Theta Z1 Camera,2313
+92,Insta360 X3 Camera,400
+93,DJI Osmo Pocket 2 Camera,4540
+94,Google Pixel 7,157
+95,OnePlus 11 Pro,1409
+73,Altavoz Premium,452
+40,Altavoz Pro,308
+53,Ventilador 53,4106
+1,Cámara,1000
+62,Impresora 62,2724
+2,Tablet 67,1537
+2,Microondas 59,505
+3,Microondas 79,2296
+11,Monitor 33,3953
+10,Microondas 99,900

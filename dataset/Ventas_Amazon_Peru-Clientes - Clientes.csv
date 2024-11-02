@@ -1,10 +1,10 @@
 ID_Cliente,Nombre,Correo,Teléfono
 1,Carlos Pérez,carlos.perez@email.com,987654321
-2,Āº,ana.lopez@email.com,956123456
-3,José Fernández,Āi,987321654
+2,ĀºChuin Peres,ana.lopez@email.com,956123456
+3,José Fernández,Āiwisner@gmail.com,987321654
 4,María García,maria.garcia@email.com,945678123
 5,Juan Morales,juan.morales@email.com,912345678
-6,Āº,Āi,956789123
+6,ĀºJuan Ramon,Āifara@gmail.com,956789123
 7,Luis Mendoza,luis.mendoza@email.com,923456789
 8,Gabriela Torres,gabriela.torres@email.com,978654123
 9,Pedro Castillo,pedro.castillo@email.com,914567890
@@ -12,10 +12,10 @@ ID_Cliente,Nombre,Correo,Teléfono
 11,Alejandro Salazar,alejandro.salazar@email.com,987456321
 12,Lucía Herrera,lucia.herrera@email.com,912345987
 13,Jorge Campos,jorge.campos@email.com,965412789
-14,Ā©,monica.espinoza@email.com,956123789
+14,Ā©Peres Robles,monica.espinoza@email.com,956123789
 15,Diego Paredes,diego.paredes@email.com,998765432
 16,Paola Sánchez,paola.sanchez@email.com,934567891
-17,Āº,ricardo.gomez@email.com,921234567
+17,ĀºKines Jesus,ricardo.gomez@email.com,921234567
 18,Carmen Cárdenas,carmen.cardenas@email.com,945612378
 19,Andrés Núñez,andres.nunez@email.com,956789432
 20,Fabiola Benavides,fabiola.benavides@email.com,912398765
@@ -23,7 +23,7 @@ ID_Cliente,Nombre,Correo,Teléfono
 22,Laura Pacheco,laura.pacheco@email.com,951234567
 23,Roberto Quiñones,roberto.quinones@email.com,912345678
 24,Daniela Castañeda,daniela.castaneda@email.com,987321654
-25,Ernesto Guevara,Ā³,923456789
+25,Ernesto Guevara,Ā³rissel@gmail.com,923456789
 26,Sofía Rojas,sofía.rojas@email.com,940330716
 27,Miguel Rojas,miguel.rojas@email.com,987726108
 28,Miguel Mendoza,miguel.mendoza@email.com,964122948
@@ -31,8 +31,8 @@ ID_Cliente,Nombre,Correo,Teléfono
 30,Daniela Vargas,daniela.vargas@email.com,983259990
 31,Daniela Gómez,daniela.gómez@email.com,978250214
 32,Daniela Ramírez,daniela.ramírez@email.com,955798304
-33,Ā³,roberto.ortega@email.com,954484609
-34,Āi,Ā±,962676560
+33,Ā³Kin Piu,roberto.ortega@email.com,954484609
+34,ĀiKuin Raya,Ā±josesernaque@gmail.com,962676560
 35,Carla Rojas,carla.rojas@email.com,972234931
 36,Elena Ramírez,elena.ramírez@email.com,914498198
 37,Miguel Rojas,miguel.rojas@email.com,982311487
@@ -44,31 +44,31 @@ ID_Cliente,Nombre,Correo,Teléfono
 43,Lucía Rojas,lucía.rojas@email.com,924535298
 44,Sofía Reyes,sofía.reyes@email.com,983214463
 45,Elena Ramírez,elena.ramírez@email.com,900401408
-46,Āº,Āº,936108613
+46,ĀºJuana Perez,Āºyunn@gmail.com,936108613
 47,Sofía Gómez,sofía.gómez@email.com,981872194
 48,Fernando Rojas,fernando.rojas@email.com,952991680
-49,Roberto Mendoza,Āi,944780518
+49,Roberto Mendoza,Āiivan@gmail.com,944780518
 50,Lucía Torres,lucía.torres@email.com,962519989
 51,Fernando Reyes,fernando.reyes@email.com,964169514
-52,Daniela Vargas,Āi,945228775
-53,Āº,luis.cruz@email.com,941328369
+52,Daniela Vargas,Āiwisnerr@gmail.com,945228775
+53,ĀºAlan Perez,luis.cruz@email.com,941328369
 54,Lucía Luna,lucía.luna@email.com,902862742
 55,Sofía Ramírez,sofía.ramírez@email.com,927228317
 56,Daniela Ramírez,daniela.ramírez@email.com,984833517
 57,Pedro Reyes,pedro.reyes@email.com,995813030
 58,Luis Vargas,luis.vargas@email.com,951845520
-59,Ā©,elena.reyes@email.com,957433240
+59,Ā©Pie Robles,elena.reyes@email.com,957433240
 60,Luis Reyes,luis.reyes@email.com,941131523
 61,Fernando Rojas,fernando.rojas@email.com,966570893
 62,Roberto Mendoza,roberto.mendoza@email.com,922726973
 63,Fernando Luna,fernando.luna@email.com,928500203
 64,Daniela Torres,daniela.torres@email.com,993197050
 65,Sofía Torres,sofía.torres@email.com,991398121
-66,Elena Cruz,Ā³,979092416
-67,Sofía Mendoza,Ā±,999811237
-68,Luis Ortega,Ā³,974120791
+66,Elena Cruz,Ā³tenkui@gmail.com,979092416
+67,Sofía Mendoza,Ā±jose@gmail.com,999811237
+68,Luis Ortega,Ā³kines@gmail.com,974120791
 69,Luis Torres,luis.torres@email.com,917267636
-70,Ā©,miguel.gómez@email.com,968059315
+70,Ā©Juan Perez,miguel.gómez@email.com,968059315
 71,Fernando Mendoza,fernando.mendoza@email.com,955113500
 72,Elena Ortega,elena.ortega@email.com,955726952
 73,Daniela Rojas,daniela.rojas@email.com,959921085
@@ -77,8 +77,8 @@ ID_Cliente,Nombre,Correo,Teléfono
 10,Valeria Ramírez,valeria.ramirez@email.com,978123654
 50,Lucía Torres,lucía.torres@email.com,962519989
 62,Roberto Mendoza,roberto.mendoza@email.com,922726973
-2,Āº,ana.lopez@email.com,956123456
-6,Āº,Āi,956789123
+2,ĀºPierlo Jesus,ana.lopez@email.com,956123456
+6,ĀºJuan Ramirez,Āitriste@gmail.com,956789123
 18,Carmen Cárdenas,carmen.cardenas@email.com,945612378
 55,Sofía Ramírez,sofía.ramírez@email.com,927228317
 30,Daniela Vargas,daniela.vargas@email.com,983259990

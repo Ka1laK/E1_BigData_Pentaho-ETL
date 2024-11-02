@@ -1777,18 +1777,6 @@ dateVente = formattedDate;
     <fields>
       <field>
         <name>ID_Client</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>Nom</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>Email</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>Telephone</name>
         <case_insensitive>Y</case_insensitive>
       </field>
     </fields>
@@ -1824,14 +1812,6 @@ dateVente = formattedDate;
     <fields>
       <field>
         <name>ID_Produit</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>Nom</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>Prix</name>
         <case_insensitive>Y</case_insensitive>
       </field>
     </fields>
@@ -1867,22 +1847,6 @@ dateVente = formattedDate;
     <fields>
       <field>
         <name>ID_Vente</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>Montant_Total</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>ID_Client</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>ID_Produit</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-      <field>
-        <name>dateVente</name>
         <case_insensitive>Y</case_insensitive>
       </field>
     </fields>

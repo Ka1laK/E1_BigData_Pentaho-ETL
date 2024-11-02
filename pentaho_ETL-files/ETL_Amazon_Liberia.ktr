@@ -548,11 +548,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>String operations 2</from>
-      <to>Select values 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Select values 3</from>
       <to>Filter rows 2</to>
       <enabled>Y</enabled>
@@ -565,6 +560,16 @@
     <hop>
       <from>Filter rows 2</from>
       <to>Dummy (do nothing) 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>String operations 2</from>
+      <to>Replace in string 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace in string 2</from>
+      <to>Select values 3</to>
       <enabled>Y</enabled>
     </hop>
   </order>

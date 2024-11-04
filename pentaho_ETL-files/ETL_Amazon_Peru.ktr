@@ -435,6 +435,57 @@
   </info>
   <notepads>
   </notepads>
+  <connection>
+    <name>conPostgres</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>Data Warehouse</database>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>5432</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <order>
     <hop>
       <from>Clientes_Peru</from>
@@ -553,13 +604,13 @@
     </hop>
     <hop>
       <from>Select values 2</from>
-      <to>Insert / update</to>
-      <enabled>N</enabled>
+      <to>insert clientes</to>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Select values 3</from>
-      <to>Insert / update 2</to>
-      <enabled>N</enabled>
+      <to>insert productos</to>
+      <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Data validator 3</from>
@@ -607,13 +658,23 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values 5</from>
-      <to>Insert / update 3</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
       <from>Add constants</from>
       <to>Stream lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 5</from>
+      <to>filter nulls</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>filter nulls</from>
+      <to>NULLS</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>filter nulls</from>
+      <to>insert ventas</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -696,6 +757,45 @@
     </GUI>
   </step>
   <step>
+    <name>Add constants 3</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>origen</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>peru</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>656</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Clientes_Peru</name>
     <type>CsvInput</type>
     <description/>
@@ -706,7 +806,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>/home/rissel/Descargas/data_peru/Ventas_Amazon_Peru-Clientes - Clientes.csv</filename>
+    <filename>/home/ivan/Downloads/INPUTS - BIG DATA/Peru/Ventas_Amazon_Peru-Clientes - Clientes.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -1105,7 +1205,7 @@
     </GUI>
   </step>
   <step>
-    <name>Insert / update</name>
+    <name>insert clientes</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -1115,12 +1215,45 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection/>
+    <connection>conPostgres</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
-      <schema/>
-      <table>lookup table</table>
+      <schema>public</schema>
+      <table>cliente</table>
+      <key>
+        <name>nombre</name>
+        <field>nombre</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>email</name>
+        <field>email</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>pais</name>
+        <field>pais</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>nombre</name>
+        <rename>nombre</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>email</name>
+        <rename>email</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>pais</name>
+        <rename>pais</rename>
+        <update>Y</update>
+      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -1137,7 +1270,7 @@
     </GUI>
   </step>
   <step>
-    <name>Insert / update 2</name>
+    <name>insert productos</name>
     <type>InsertUpdate</type>
     <description/>
     <distribute>Y</distribute>
@@ -1147,12 +1280,45 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection/>
+    <connection>conPostgres</connection>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
-      <schema/>
-      <table>lookup table</table>
+      <schema>public</schema>
+      <table>producto</table>
+      <key>
+        <name>producto</name>
+        <field>producto</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>precio</name>
+        <field>precio</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>origen</name>
+        <field>origen</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>producto</name>
+        <rename>producto</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>precio</name>
+        <rename>precio</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>origen</name>
+        <rename>origen</rename>
+        <update>Y</update>
+      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -1169,6 +1335,93 @@
     </GUI>
   </step>
   <step>
+    <name>insert ventas</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>conPostgres</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema>public</schema>
+      <table>ventas</table>
+      <key>
+        <name>fecha</name>
+        <field>fecha</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>nombre</name>
+        <field>cliente</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>producto</name>
+        <field>producto</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>precio</name>
+        <field>monto_total</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>origen</name>
+        <field>origen</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>fecha</name>
+        <rename>fecha</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>cliente</name>
+        <rename>nombre</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>producto</name>
+        <rename>producto</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>monto_total</name>
+        <rename>precio</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>origen</name>
+        <rename>origen</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>2080</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Productos_Peru</name>
     <type>CsvInput</type>
     <description/>
@@ -1179,7 +1432,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>/home/rissel/Descargas/data_peru/Ventas_Amazon_Peru-Productos - Productos.csv</filename>
+    <filename>/home/ivan/Downloads/INPUTS - BIG DATA/Peru/Ventas_Amazon_Peru-Productos - Productos.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -1537,6 +1790,49 @@
     </GUI>
   </step>
   <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>fecha</name>
+      </field>
+      <field>
+        <name>monto</name>
+      </field>
+      <field>
+        <name>origen</name>
+      </field>
+      <field>
+        <name>id_producto</name>
+      </field>
+      <field>
+        <name>id_cliente</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1312</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Select values 2</name>
     <type>SelectValues</type>
     <description/>
@@ -1562,7 +1858,6 @@
       </field>
       <field>
         <name>ID_Cliente</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
@@ -1653,11 +1948,9 @@
       </field>
       <field>
         <name>origen</name>
-        <rename/>
       </field>
       <field>
         <name>id_producto</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1716,6 +2009,49 @@
     </remotesteps>
     <GUI>
       <xloc>480</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 5</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>fecha</name>
+      </field>
+      <field>
+        <name>nombre</name>
+      </field>
+      <field>
+        <name>producto</name>
+      </field>
+      <field>
+        <name>precio</name>
+      </field>
+      <field>
+        <name>origen</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1808</xloc>
       <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1842,6 +2178,96 @@
     </remotesteps>
     <GUI>
       <xloc>864</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Stream lookup</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <from>Add constants</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>N</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>id_cliente</name>
+        <field>ID_Cliente</field>
+      </key>
+      <value>
+        <name>nombre</name>
+        <rename>nombre</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1648</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Stream lookup 2</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <from>Select values</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>N</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>Y</integer_pair>
+    <lookup>
+      <key>
+        <name>id_producto</name>
+        <field>id_producto</field>
+      </key>
+      <value>
+        <name>fecha</name>
+        <rename>fecha</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>id_cliente</name>
+        <rename>id_cliente</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1488</xloc>
       <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2055,7 +2481,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>/home/rissel/Descargas/data_peru/Ventas_Amazon_Peru-Ventas - Ventas_final.csv</filename>
+    <filename>/home/ivan/Downloads/INPUTS - BIG DATA/Peru/Ventas_Amazon_Peru-Ventas - Ventas.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -2141,8 +2567,8 @@
     </GUI>
   </step>
   <step>
-    <name>Add constants 3</name>
-    <type>Constant</type>
+    <name>NULLS</name>
+    <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2151,20 +2577,6 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <fields>
-      <field>
-        <name>origen</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>peru</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2174,14 +2586,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1088</xloc>
-      <yloc>656</yloc>
+      <xloc>1952</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Stream lookup 2</name>
-    <type>StreamLookup</type>
+    <name>filter nulls</name>
+    <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2190,199 +2602,28 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <from>Select values</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>N</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>Y</integer_pair>
-    <lookup>
-      <key>
-        <name>id_producto</name>
-        <field>id_producto</field>
-      </key>
-      <value>
-        <name>fecha</name>
-        <rename>fecha</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>id_cliente</name>
-        <rename>id_cliente</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1488</xloc>
-      <yloc>352</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Stream lookup</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <from>Add constants</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>N</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>id_cliente</name>
-        <field>ID_Cliente</field>
-      </key>
-      <value>
-        <name>nombre</name>
-        <rename>nombre</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1648</xloc>
-      <yloc>352</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>fecha</name>
-        <rename/>
-      </field>
-      <field>
-        <name>monto</name>
-        <rename/>
-      </field>
-      <field>
-        <name>origen</name>
-        <rename/>
-      </field>
-      <field>
-        <name>id_producto</name>
-        <rename/>
-      </field>
-      <field>
-        <name>id_cliente</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1312</xloc>
-      <yloc>352</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values 5</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>fecha</name>
-        <rename/>
-      </field>
-      <field>
-        <name>nombre</name>
-        <rename/>
-      </field>
-      <field>
-        <name>producto</name>
-        <rename/>
-      </field>
-      <field>
-        <name>precio</name>
-        <rename/>
-      </field>
-      <field>
-        <name>origen</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1808</xloc>
-      <yloc>352</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Insert / update 3</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection/>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>lookup table</table>
-    </lookup>
+    <send_true_to>insert ventas</send_true_to>
+    <send_false_to>NULLS</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <leftvalue>fecha</leftvalue>
+            <function>IS NOT NULL</function>
+            <rightvalue/>
+          </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>nombre</leftvalue>
+            <function>IS NOT NULL</function>
+            <rightvalue/>
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
     <attributes/>
     <cluster_schema/>
     <remotesteps>

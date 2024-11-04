@@ -580,17 +580,17 @@
     <hop>
       <from>Add constants</from>
       <to>Insert / update</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Unique rows 2</from>
       <to>Insert / update 2</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Add constants 2</from>
       <to>Insert / update 3</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
   </order>
   <step>

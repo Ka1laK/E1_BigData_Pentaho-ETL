@@ -544,11 +544,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Unique rows</from>
-      <to>Add constants</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Filter rows 2</from>
       <to>Sort rows 2</to>
       <enabled>Y</enabled>
@@ -629,11 +624,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Add constants</from>
-      <to>Select values</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Modified JavaScript value</from>
       <to>Select values 2</to>
       <enabled>Y</enabled>
@@ -644,60 +634,61 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values</from>
-      <to>Insert / update</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
       <from>Select values 3</from>
       <to>Insert / update 2</to>
       <enabled>N</enabled>
     </hop>
     <hop>
       <from>Add constants 2</from>
+      <to>Select values 6</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 6</from>
+      <to>Stream lookup 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 3</from>
+      <to>Stream lookup 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stream lookup 2</from>
+      <to>Stream lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Stream lookup</from>
+      <to>Select values 5</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 5</from>
       <to>Insert / update 3</to>
       <enabled>N</enabled>
     </hop>
+    <hop>
+      <from>Select values 7</from>
+      <to>Insert / update</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Unique rows</from>
+      <to>Add constants</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add constants</from>
+      <to>Stream lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add constants</from>
+      <to>Select values 7</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
-  <step>
-    <name>Add constants</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>pais</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>France</nullif>
-        <length>10</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1136</xloc>
-      <yloc>64</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>Add constants 2</name>
     <type>Constant</type>
@@ -732,8 +723,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1104</xloc>
-      <yloc>672</yloc>
+      <xloc>1120</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -915,8 +906,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>176</xloc>
-      <yloc>272</yloc>
+      <xloc>208</xloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -943,8 +934,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
-      <yloc>560</yloc>
+      <xloc>208</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -993,8 +984,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
-      <yloc>496</yloc>
+      <xloc>736</xloc>
+      <yloc>864</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1018,8 +1009,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>640</xloc>
-      <yloc>784</yloc>
+      <xloc>656</xloc>
+      <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1113,8 +1104,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
-      <yloc>384</yloc>
+      <xloc>736</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1148,8 +1139,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>640</xloc>
-      <yloc>672</yloc>
+      <xloc>656</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1185,6 +1176,70 @@
     <GUI>
       <xloc>816</xloc>
       <yloc>64</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert / update 2</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection/>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>lookup table</table>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1312</xloc>
+      <yloc>752</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert / update 3</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection/>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>lookup table</table>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1872</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1246,8 +1301,8 @@ dateVente = formattedDate;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>272</xloc>
-      <yloc>672</yloc>
+      <xloc>288</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1350,8 +1405,140 @@ dateVente = formattedDate;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>80</xloc>
-      <yloc>384</yloc>
+      <xloc>112</xloc>
+      <yloc>752</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>ID_Vente</name>
+        <rename>id_venta</rename>
+      </field>
+      <field>
+        <name>dateVente</name>
+        <rename>fecha</rename>
+      </field>
+      <field>
+        <name>Montant_Total</name>
+        <rename>monto_total</rename>
+      </field>
+      <field>
+        <name>ID_Client</name>
+        <rename>id_cliente</rename>
+      </field>
+      <field>
+        <name>ID_Produit</name>
+        <rename>id_producto</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 3</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>ID_Produit</name>
+        <rename>id_producto</rename>
+      </field>
+      <field>
+        <name>Nom</name>
+        <rename>producto</rename>
+      </field>
+      <field>
+        <name>Prix</name>
+        <rename>precio</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1152</xloc>
+      <yloc>752</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 4</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>ID_Client</name>
+        <rename>id_cliente</rename>
+      </field>
+      <field>
+        <name>Nom</name>
+        <rename>nombre</rename>
+      </field>
+      <field>
+        <name>Email</name>
+        <rename>email</rename>
+      </field>
+      <field>
+        <name>Telephone</name>
+        <rename>telefono</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1434,8 +1621,8 @@ dateVente = formattedDate;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>816</xloc>
-      <yloc>384</yloc>
+      <xloc>848</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1476,8 +1663,8 @@ dateVente = formattedDate;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>800</xloc>
-      <yloc>672</yloc>
+      <xloc>816</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1569,8 +1756,8 @@ dateVente = formattedDate;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>528</xloc>
-      <yloc>384</yloc>
+      <xloc>560</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1639,8 +1826,8 @@ dateVente = formattedDate;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>960</xloc>
-      <yloc>384</yloc>
+      <xloc>992</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1674,8 +1861,8 @@ dateVente = formattedDate;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>960</xloc>
-      <yloc>672</yloc>
+      <xloc>976</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1824,8 +2011,8 @@ dateVente = formattedDate;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>96</xloc>
-      <yloc>672</yloc>
+      <xloc>112</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2058,14 +2245,14 @@ dateVente = formattedDate;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>320</xloc>
-      <yloc>384</yloc>
+      <xloc>352</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Select values 3</name>
-    <type>SelectValues</type>
+    <name>Stream lookup</name>
+    <type>StreamLookup</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2074,65 +2261,23 @@ dateVente = formattedDate;
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <fields>
-      <field>
-        <name>ID_Produit</name>
-        <rename>id_producto</rename>
-      </field>
-      <field>
-        <name>Nom</name>
-        <rename>producto</rename>
-      </field>
-      <field>
-        <name>Prix</name>
-        <rename>precio</rename>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1120</xloc>
-      <yloc>384</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values 4</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>ID_Client</name>
-        <rename>id_cliente</rename>
-      </field>
-      <field>
-        <name>Nom</name>
+    <from>Add constants</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>N</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>id_cliente</name>
+        <field>id_cliente</field>
+      </key>
+      <value>
+        <name>nombre</name>
         <rename>nombre</rename>
-      </field>
-      <field>
-        <name>Email</name>
-        <rename>email</rename>
-      </field>
-      <field>
-        <name>Telephone</name>
-        <rename>telefono</rename>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
+        <default/>
+        <type>None</type>
+      </value>
+    </lookup>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2142,13 +2287,55 @@ dateVente = formattedDate;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>128</yloc>
+      <xloc>1600</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Select values</name>
+    <name>Stream lookup 2</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <from>Select values 3</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>N</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>id_producto</name>
+        <field>id_producto</field>
+      </key>
+      <value>
+        <name>producto</name>
+        <rename>producto</rename>
+        <default/>
+        <type>None</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1424</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 6</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -2159,10 +2346,106 @@ dateVente = formattedDate;
       <schema_name/>
     </partitioning>
     <fields>
+      <field>
+        <name>id_venta</name>
+        <rename/>
+      </field>
+      <field>
+        <name>fecha</name>
+        <rename/>
+      </field>
+      <field>
+        <name>monto_total</name>
+        <rename/>
+      </field>
       <field>
         <name>id_cliente</name>
         <rename/>
       </field>
+      <field>
+        <name>id_producto</name>
+        <rename/>
+      </field>
+      <field>
+        <name>origen</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1296</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 5</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>fecha</name>
+        <rename/>
+      </field>
+      <field>
+        <name>nombre</name>
+        <rename/>
+      </field>
+      <field>
+        <name>producto</name>
+        <rename/>
+      </field>
+      <field>
+        <name>monto_total</name>
+        <rename/>
+      </field>
+      <field>
+        <name>origen</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1712</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 7</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
       <field>
         <name>nombre</name>
         <rename/>
@@ -2186,56 +2469,8 @@ dateVente = formattedDate;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1264</xloc>
+      <xloc>1296</xloc>
       <yloc>64</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>ID_Vente</name>
-        <rename>id_venta</rename>
-      </field>
-      <field>
-        <name>dateVente</name>
-        <rename>fecha</rename>
-      </field>
-      <field>
-        <name>Montant_Total</name>
-        <rename>monto_total</rename>
-      </field>
-      <field>
-        <name>ID_Client</name>
-        <rename>id_cliente</rename>
-      </field>
-      <field>
-        <name>ID_Produit</name>
-        <rename>id_producto</rename>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>448</xloc>
-      <yloc>672</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2266,29 +2501,36 @@ dateVente = formattedDate;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1392</xloc>
+      <xloc>1520</xloc>
       <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Insert / update 2</name>
-    <type>InsertUpdate</type>
+    <name>Add constants</name>
+    <type>Constant</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection/>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>lookup table</table>
-    </lookup>
+    <fields>
+      <field>
+        <name>pais</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>France</nullif>
+        <length>10</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2298,40 +2540,8 @@ dateVente = formattedDate;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1280</xloc>
-      <yloc>384</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Insert / update 3</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection/>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema/>
-      <table>lookup table</table>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1248</xloc>
-      <yloc>672</yloc>
+      <xloc>1136</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

@@ -618,16 +618,21 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values 7</from>
+      <from>Add constants</from>
       <to>Stream lookup 2</to>
       <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 7</from>
+      <to>Insert / update</to>
+      <enabled>N</enabled>
     </hop>
   </order>
   <step>
     <name>Add constants</name>
     <type>Constant</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -2418,7 +2423,7 @@ var dateSale = Date_Time.substring(0, 10);
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <from>Select values 7</from>
+    <from>Add constants</from>
     <input_sorted>N</input_sorted>
     <preserve_memory>N</preserve_memory>
     <sorted_list>N</sorted_list>
@@ -2602,10 +2607,6 @@ var dateSale = Date_Time.substring(0, 10);
     </partitioning>
     <fields>
       <field>
-        <name>id_cliente</name>
-        <rename/>
-      </field>
-      <field>
         <name>nombre</name>
         <rename/>
       </field>
@@ -2629,6 +2630,38 @@ var dateSale = Date_Time.substring(0, 10);
     </remotesteps>
     <GUI>
       <xloc>1360</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert / update</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection/>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>lookup table</table>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1536</xloc>
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>

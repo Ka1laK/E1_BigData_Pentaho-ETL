@@ -523,11 +523,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values 2</from>
-      <to>Filter rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>String operations</from>
       <to>Modified JavaScript value 2</to>
       <enabled>Y</enabled>
@@ -535,11 +530,6 @@
     <hop>
       <from>Modified JavaScript value 2</from>
       <to>Replace in string</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values 3</from>
-      <to>Filter rows 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -558,18 +548,33 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Replace in string 2</from>
-      <to>Select values 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Unique rows 3</from>
       <to>Add constants 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Data validator 3</from>
+      <to>Modified JavaScript value</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace in string 2</from>
+      <to>Select values 3</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 3</from>
+      <to>Filter rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Modified JavaScript value</from>
       <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 2</from>
+      <to>Filter rows</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -586,7 +591,7 @@
     </partitioning>
     <fields>
       <field>
-        <name>Country</name>
+        <name>pais</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -678,12 +683,12 @@
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>/home/rissel/Downloads/Ventas_Amazon_Liberia.xlsx</name>
+      <name/>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
-      <name/>
+      <name>/home/rissel/Descargas/data_liberia/Ventas_Amazon_Liberia_final.xlsx</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -870,8 +875,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>256</xloc>
-      <yloc>672</yloc>
+      <xloc>192</xloc>
+      <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -991,7 +996,7 @@
     <compare>
       <condition>
         <negated>N</negated>
-        <leftvalue>Total_Amount</leftvalue>
+        <leftvalue>id_venta</leftvalue>
         <function>IS NOT NULL</function>
         <rightvalue/>
       </condition>
@@ -1026,7 +1031,7 @@
     <compare>
       <condition>
         <negated>N</negated>
-        <leftvalue>Product_Name</leftvalue>
+        <leftvalue>id_producto</leftvalue>
         <function>IS NOT NULL</function>
         <rightvalue/>
       </condition>
@@ -1061,7 +1066,7 @@
     <compare>
       <condition>
         <negated>N</negated>
-        <leftvalue>fullName</leftvalue>
+        <leftvalue>nombre</leftvalue>
         <function>IS NOT NULL</function>
         <rightvalue/>
       </condition>
@@ -1096,7 +1101,7 @@
     <compare>
       <condition>
         <negated>N</negated>
-        <leftvalue>Email</leftvalue>
+        <leftvalue>email</leftvalue>
         <function>IS NOT NULL</function>
         <rightvalue/>
       </condition>
@@ -1360,7 +1365,7 @@
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>/home/rissel/Downloads/Ventas_Amazon_Liberia.xlsx</name>
+      <name>/home/rissel/Descargas/data_liberia/Ventas_Amazon_Liberia_final.xlsx</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1381,7 +1386,7 @@
       </field>
       <field>
         <name>Date_Time</name>
-        <type>Date</type>
+        <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1494,17 +1499,20 @@
     <fields>
       <field>
         <name>Client_ID</name>
+        <rename/>
       </field>
       <field>
         <name>fullName</name>
+        <rename/>
       </field>
       <field>
         <name>Email</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
       <meta>
         <name>fullName</name>
-        <rename>fullName</rename>
+        <rename>nombre</rename>
         <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
@@ -1521,7 +1529,7 @@
       </meta>
       <meta>
         <name>Email</name>
-        <rename>Email</rename>
+        <rename>email</rename>
         <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
@@ -1538,7 +1546,7 @@
       </meta>
       <meta>
         <name>Client_ID</name>
-        <rename>Client_ID</rename>
+        <rename>id_cliente</rename>
         <type>Integer</type>
         <length>-2</length>
         <precision>-2</precision>
@@ -1569,193 +1577,6 @@
     </GUI>
   </step>
   <step>
-    <name>Select values 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>Sale_ID</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Date_Time</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Total_Amount</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Product_ID</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Client_ID</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>Sale_ID</name>
-        <rename>Sale_ID</rename>
-        <type>Integer</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>Date_Time</name>
-        <rename>Date_Time</rename>
-        <type>Date</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>Total_Amount</name>
-        <rename>Total_Amount</rename>
-        <type>None</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>Product_ID</name>
-        <rename>Product_ID</rename>
-        <type>Integer</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-      <meta>
-        <name>Client_ID</name>
-        <rename>Client_ID</rename>
-        <type>Integer</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>464</xloc>
-      <yloc>672</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values 3</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>Product_ID</name>
-      </field>
-      <field>
-        <name>Product_Name</name>
-      </field>
-      <field>
-        <name>Unit_Price</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>Product_ID</name>
-        <rename>Product_ID</rename>
-        <type>Integer</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>576</xloc>
-      <yloc>384</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Sort rows</name>
     <type>SortRows</type>
     <description/>
@@ -1775,7 +1596,7 @@
     <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>Client_ID</name>
+        <name>id_cliente</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -1817,7 +1638,7 @@
     <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>Product_ID</name>
+        <name>id_producto</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -1859,7 +1680,7 @@
     <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>Sale_ID</name>
+        <name>id_venta</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -2004,7 +1825,7 @@
     <error_description/>
     <fields>
       <field>
-        <name>Client_ID</name>
+        <name>id_cliente</name>
         <case_insensitive>Y</case_insensitive>
       </field>
     </fields>
@@ -2039,7 +1860,7 @@
     <error_description/>
     <fields>
       <field>
-        <name>Product_ID</name>
+        <name>id_producto</name>
         <case_insensitive>Y</case_insensitive>
       </field>
     </fields>
@@ -2074,7 +1895,7 @@
     <error_description/>
     <fields>
       <field>
-        <name>Sale_ID</name>
+        <name>id_cliente</name>
         <case_insensitive>Y</case_insensitive>
       </field>
     </fields>
@@ -2119,7 +1940,7 @@
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>/home/rissel/Downloads/Ventas_Amazon_Liberia.xlsx</name>
+      <name>/home/rissel/Descargas/data_liberia/Ventas_Amazon_Liberia_final.xlsx</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -2198,8 +2019,280 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>96</xloc>
+      <xloc>112</xloc>
       <yloc>416</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Modified JavaScript value</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+
+// Asignar los primeros 9 caracteres de Date_Time a la nueva columna dateSale
+var dateSale = Date_Time.substring(0, 10);
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>dateSale</name>
+        <rename>dateSale</rename>
+        <type>String</type>
+        <length>10</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>672</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 3</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Product_ID</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Product_Name</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Unit_Price</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>Product_ID</name>
+        <rename>id_producto</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Product_Name</name>
+        <rename>nombre</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Unit_Price</name>
+        <rename>precio</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>560</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Sale_ID</name>
+        <rename/>
+      </field>
+      <field>
+        <name>dateSale</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Total_Amount</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Product_ID</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Client_ID</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>Sale_ID</name>
+        <rename>id_venta</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>dateSale</name>
+        <rename>fecha</rename>
+        <type>None</type>
+        <length>10</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Total_Amount</name>
+        <rename>monto_total</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Product_ID</name>
+        <rename>id_producto</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Client_ID</name>
+        <rename>id_cliente</rename>
+        <type>Integer</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

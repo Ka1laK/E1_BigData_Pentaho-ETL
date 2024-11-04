@@ -627,11 +627,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select Productos</from>
-      <to>insertar_productos</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Select Ventas</from>
       <to>producto</to>
       <enabled>Y</enabled>
@@ -683,8 +678,18 @@
     </hop>
     <hop>
       <from>Select Productos</from>
+      <to>origen</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>origen</from>
+      <to>insertar_productos</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>origen</from>
       <to>productos excel</to>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
     </hop>
   </order>
   <step>
@@ -2141,7 +2146,7 @@ var Producto = NAME + " " + Marca + " " + MODELL;
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>excel ventas</send_true_to>
+    <send_true_to>insertar_ventas</send_true_to>
     <send_false_to>NULLS</send_false_to>
     <compare>
       <condition>
@@ -2313,6 +2318,12 @@ var Producto = NAME + " " + Marca + " " + MODELL;
         <condition>=</condition>
         <name2/>
       </key>
+      <key>
+        <name>origen</name>
+        <field>origen</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
       <value>
         <name>producto</name>
         <rename>producto</rename>
@@ -2321,6 +2332,11 @@ var Producto = NAME + " " + Marca + " " + MODELL;
       <value>
         <name>precio</name>
         <rename>precio</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>origen</name>
+        <rename>origen</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -2333,7 +2349,7 @@ var Producto = NAME + " " + Marca + " " + MODELL;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>912</xloc>
+      <xloc>1040</xloc>
       <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2678,8 +2694,47 @@ var Producto = NAME + " " + Marca + " " + MODELL;
       </output>
     </remotesteps>
     <GUI>
-      <xloc>912</xloc>
-      <yloc>448</yloc>
+      <xloc>1008</xloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>origen</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>origen</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>Alemania</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>896</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

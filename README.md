@@ -1,4 +1,4 @@
-# 🛠️ Proyecto ETL para Sistema de Ventas de Amazon
+# 🛠️ Amazon Data Integration & Analytics
 
 Este repositorio contiene el desarrollo de un proceso ETL (Extracción, Transformación y Carga) utilizando Pentaho Data Integration (PDI) para la integración de datos del sistema de ventas de Amazon. El objetivo es gestionar eficientemente datos provenientes de distintas fuentes para facilitar su análisis y mejorar la toma de decisiones mediante **dashboards** 📊.
 
